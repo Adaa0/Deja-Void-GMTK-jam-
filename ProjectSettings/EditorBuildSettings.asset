@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: b705f79162c23774aa74a10071fce708
+  - enabled: 1
+    path: Assets/Scenes/DenemeSahne.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: f9d63288746986a44b2b53c467b3e652
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 88c439f37379ace46b25b5fdbbbbd10f
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: d58427a0069bd0d47afd339f0d877ad6
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: c8fcba54eb79b754ea8d7a12d86d2bef
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
+    guid: 4cf40d3b2f8d8e74ab3ab210855f3472
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_UseUCBPForAssetBundles: 0
