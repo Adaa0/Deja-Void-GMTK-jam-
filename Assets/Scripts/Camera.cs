@@ -2,35 +2,44 @@ using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
-    public Transform target;             // Takip edilecek karakter
-    public Vector3 offset = new Vector3(0f, 2f, -4f); // Kamera hedefe göre pozisyon farkı
-    public float sensitivity = 3f;       // Mouse hassasiyeti
+    public Transform target;
+    public Vector3 offset = new Vector3(0f, 2f, -4f);
+    public float sensitivity = 3f;
     public float rotationSmoothTime = 0.1f;
 
     public float minY = -30f;
     public float maxY = 60f;
 
-    private float yaw;   // Yatay dönüş
-    private float pitch; // Dikey dönüş
+    private float yaw;
+    private float pitch;
     private Vector3 currentRotation;
     private Vector3 rotationSmoothVelocity;
 
+    void Start()
+    {
+        LockCursor();
+    }
+
+    void Update()
+    {
+        HandleCursorLock();
+    }
+
     void LateUpdate()
     {
-        // Mouse input
+        if (Cursor.lockState != CursorLockMode.Locked) return;
+
         yaw += Input.GetAxis("Mouse X") * sensitivity;
         pitch -= Input.GetAxis("Mouse Y") * sensitivity;
         pitch = Mathf.Clamp(pitch, minY, maxY);
 
-        // Smooth dönüş
         Vector3 targetRotation = new Vector3(pitch, yaw);
         currentRotation = Vector3.SmoothDamp(currentRotation, targetRotation, ref rotationSmoothVelocity, rotationSmoothTime);
         transform.eulerAngles = currentRotation;
 
-        // Kamera pozisyonu
         Vector3 desiredPosition = target.position + Quaternion.Euler(currentRotation) * offset;
 
-        // Opsiyonel: Kamera raycast ile duvarlara girmesin
+        // Raycast ile çarpmayı engellemek istersen aç:
         // RaycastHit hit;
         // if (Physics.Linecast(target.position, desiredPosition, out hit))
         // {
@@ -38,5 +47,27 @@ public class ThirdPersonCamera : MonoBehaviour
         // }
 
         transform.position = desiredPosition;
+    }
+
+    void HandleCursorLock()
+    {
+        // ESC ile çık
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        // LMB (sol tık) ile tekrar kilitle
+        if (Input.GetMouseButtonDown(0) && Cursor.lockState != CursorLockMode.Locked)
+        {
+            LockCursor();
+        }
+    }
+
+    void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
