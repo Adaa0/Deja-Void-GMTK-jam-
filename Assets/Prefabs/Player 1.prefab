@@ -1185,10 +1185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98664c25f76abab45b6ea3f663c1ffeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
-  runSpeed: 10
-  jumpHeight: 3
-  gravity: -6
+  walkSpeed: 3
+  runSpeed: 6
+  jumpHeight: 2
+  gravity: -5
   cameraTransform: {fileID: 0}
   jumpSoundClip: {fileID: 8300000, guid: 57be96db9304fc749afac3322b0129e8, type: 3}
 --- !u!114 &6268584914342637040
@@ -1268,7 +1268,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

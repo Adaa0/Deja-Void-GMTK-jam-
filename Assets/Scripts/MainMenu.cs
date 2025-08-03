@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("DenemeSahne"); // Level1 sahnenin adı doğru mu kontrol et
+        SceneManager.LoadScene("Level1"); // Level1 sahnenin adı doğru mu kontrol et
     }
 
 
