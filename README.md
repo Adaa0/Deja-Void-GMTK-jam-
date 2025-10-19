@@ -1,10 +1,15 @@
 Déjà Void
 
 Theme: Loop
+
 Duration: 3 Days (GMTK Game Jam 2025)
+
 Engine: Unity (C#)
+
 Role: Programmer & Level Designer
+
 Team: 3 members (I handled all coding)
+
 Playable build: itch.io - Déjà Void
 
 About the Game
